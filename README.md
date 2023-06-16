@@ -22,12 +22,16 @@ For mono-modal models trained with T1-Weighted images, the models were trained w
 For multi-modal models trained with T1 + FLAIR images, the models were trained with FLAIR images coregistered to the T1 and added as a second channel: 160 × 214 × 176 x 2 voxels.
 
 A segmentation can be computed as the average of the inference of several models (depending on the number of folds used in the training for a particular model), the provided models can be found in the directories:
-* PVS/v0/T1.PVS: is the segmentation model described in the publication
-    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/dDqjx2DCq) : https://cloud.efixia.com/sharing/dDqjx2DCq
 * PVS/v1/T1.PVS: is a segmentation model with incremental architecture enhancements done since the publication and is trained with a nonlinear voxel augmentation strategy that makes it more robust when used with degraded or resampled images.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/wknXOu07H) : https://cloud.efixia.com/sharing/wknXOu07H
+    * Checksum : 90376aaa340e8cb0459f29a9f5f2007a
 * PVS/v1/T1-FLAIR.PVS: is a multimodal segmentation model with the same architecture as the one above, using FLAIR provides a small performance increase.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/Dg49eKSPR) : https://cloud.efixia.com/sharing/Dg49eKSPR
+    * Checksum : bef270c685f5d9bffaa28ab78576ba59
+<!-- -->
+* PVS/v0/T1.PVS: is the segmentation model described in the publication
+    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/dDqjx2DCq) : https://cloud.efixia.com/sharing/dDqjx2DCq
+    * Checksum : 655938f815763c4a454370147f8d13e2
 
 The resulting segmentation is an image with voxels values in [0, 1] (proxy for the probability of detection of WMH) that must be thresholded to get the final segmentation. A threshold of 0.5 has been used successfully but that depends on the preferred balance between precision and sensitivity.
 
