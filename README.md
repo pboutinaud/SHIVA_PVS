@@ -2,7 +2,11 @@
 
 This repository contains the trained tensorflow models for the 3D Segmentation of Perivascular Spaces on either T1-Weighted or multi-modal T1-Weighted + FLAIR MR Images with a 3D U-Shaped Neural Network (U-net) as described in the scientific publication cited below.
 
-## IP, Licencing & Usage
+<center>
+<img src="./docs/Images/SHIVA_BrainTools_small2.gif" />
+</center>
+
+## IP, Licencing
 
 **The inferences created by these models should not be used for clinical purposes.**
 
@@ -42,10 +46,33 @@ The resulting segmentation is an image with voxels values in [0, 1] (proxy for t
 ## Requirements
 Unless otherwise mentionned, the models were trained with Tensorflow > 2.7 used with Python 3.7, they are stored in the H5 format (there is a compatibility problem when reading tendorflow H5 files by using Python version > 3.7).
 
-The provided python script *predict_one_file.py* can be used as an example of usage of the model. It needs the *nibabel* python library to be able to read NIfTI files. 
-
 A NVIDIA GPU with at least 9Go of RAM is needed to compute inferences with the trained models.
 
+## Usage
+The provided python script *predict_one_file.py* can be used as an example of usage of the model. It needs the *nibabel* python library to be able to read NIfTI files.
+
+Here is the main part of the script, assuming that he images are in a numpy array with the correct shape (*nb of images*, 160, 214, 176, *number of modality to use for this model*) and you have enough RAM to load all images in one array (else use a Tensorflow dataset) :
+````python
+# Load models & predict
+predictions = []
+for predictor_file in predictor_files:  # predictor_files is the list of the model's paths
+    tf.keras.backend.clear_session()
+    try:
+        model = tf.keras.models.load_model(
+            predictor_file,
+            compile=False,
+            custom_objects={"tf": tf})
+    except Exception as err:
+        print(f'\n\tWARNING : Exception loading model : {predictor_file}\n{err}')
+        continue
+    # compute the segmentation for this model
+    prediction = model.predict(images)
+    # append segmentation for this
+    predictions.append(prediction)
+
+# Average all predictions
+predictions = np.mean(predictions, axis=0)
+````
 ## Acknowledgements
 This work has been done in collaboration between the [Fealinx](http://www.fealinx-biomedical.com/en/) company and the [GIN](https://www.gin.cnrs.fr/en/) laboratory (Groupe d'Imagerie Neurofonctionelle, UMR5293, IMN, Univ. Bordeaux, CEA , CNRS) with grants from the Agence Nationale de la Recherche (ANR) with the projects [GinesisLab](http://www.ginesislab.fr/) (ANR 16-LCV2-0006-01) and [SHIVA](https://rhu-shiva.com/en/) (ANR-18-RHUS-0002)
 
