@@ -48,7 +48,7 @@ A NVIDIA GPU with at least 9Go of RAM is needed to compute inferences with the t
 ## Usage
 The provided python script *predict_one_file.py* can be used as an example of usage of the model. It needs the *nibabel* python library to be able to read NIfTI files.
 
-Here is the main part of the script, assuming that he images are in a numpy array with the correct shape (*nb of images*, 160, 214, 176, *number of modality to use for this model*) and that you have enough CPU RAM to load all images in one array (else use a Tensorflow dataset) :
+Here is the main part of the script, assuming that the images are in a numpy array with the correct shape (*nb of images*, 160, 214, 176, *number of modality to use for this model*) and that you have enough CPU RAM to load all images in one array (else use a Tensorflow dataset) :
 ````python
 # Load models & predict
 predictions = []
