@@ -24,7 +24,7 @@ For mono-modal models trained with T1-Weighted images, the models were trained w
 
 For multi-modal models trained with T1 + FLAIR images, the models were trained with FLAIR images coregistered to the T1 and added as a second channel: 160 × 214 × 176 x 2 voxels.
 
-The segmentation can be computed as the average of the inference of several models (depending on the number of folds used in the training for a particular model). The resulting segmentation is an image with voxels values in [0, 1] (proxy for the probability of detection of WMH) that must be thresholded to get the actual segmentation. A threshold of 0.5 has been used successfully but that depends on the preferred balance between precision and sensitivity.
+The segmentation can be computed as the average of the inference of several models (depending on the number of folds used in the training for a particular model). The resulting segmentation is an image with voxels values in [0, 1] (proxy for the probability of detection of PVS) that must be thresholded to get the actual segmentation. A threshold of 0.5 has been used successfully but that depends on the preferred balance between precision and sensitivity.
 
 To access the models :
 * v2/T1.PVS : is a segmentation Unet-like model with residual blocks trained from transfert learning from other models (e.g. T2->CMB). It is able to segment PVS from T2 images if they are preprocessed with inverted voxels inside the brain mask. It was trained with Tensorflow  2.9.1 used with Python 3.9, indiviudal models are stored in the Tensorflow "SavedModel" format to avoid the H5 compatibility problems mentionned below.
@@ -45,8 +45,30 @@ Unless otherwise mentionned, the models were trained with Tensorflow > 2.7 used 
 
 A NVIDIA GPU with at least 9Go of RAM is needed to compute inferences with the trained models.
 
+To run the `predict_one_file.py` script, you will need a python environment with the following librairies:
+- tensorflow >= 2.7
+- numpy
+- nibabel
+If you don't know anything about python environment and libraries, you can find some documentation and installers on the [Anaconda website](https://docs.anaconda.com/). We recommend using the lightweight [Miniconda](https://docs.anaconda.com/miniconda/).
+
 ## Usage
-The provided python script *predict_one_file.py* can be used as an example of usage of the model. It needs the *nibabel* python library to be able to read NIfTI files.
+Step-by-step process to run the model:
+1. Download the `predict_one_file.py` from the repository (clic the "<> Code" button on the GitHub interface and download the zip file, or clone the repository)
+2. Download and unzip the trained models (see [above](#the-segmentation-models))
+3. Preprocess the input data (swi or T2gre images) to the proper x-y-z volume (160 × 214 × 176). If the resolution is close to 1mm isotropic voxels, a simple cropping is enough. Otherwise, you will have to resample the images to 1mm isotropic voxels. For now, you will have to do it by yourself, but soon we will provide a full Shiva pipeline to run everything.
+4. Run the `predict_one_file.py` script as described below
+To run `predict_one_file.py` in your python environment you can check the help with the command `python predict_one_file.py -h` (replace "predict_one_file.py" with the full path to the script if it is not in the working directory).
+Here is an example of usage of the script with the following inputs:
+- The `predict_one_file.py` script stored in `/myhome/my_scripts/`
+- Preprocessed Nifti images (volume shape must be 160 × 214 × 176 and voxel values between 0 and 1) stored (for the example) in the folder `/myhome/mydata/`
+- The PVS AI models stored (for the example) in `/myhome/pvs_models/v1`
+- The ouput folder (for the example) `/myhome/my_results` needs to exist at launch
+```bash
+python /myhome/my_scripts/predict_one_file.py -i /myhome/mydata/swi_image.nii.gz -b /myhome/mydata/input_brainmask.nii.gz -o /myhome/my_results/pvs_segmentation.nii.gz -m /myhome/pvs_models/v1/PVS_fold_1_model.h5 -m /myhome/pvs_models/v1/PVS_fold_2_model.h5 -m /myhome/pvs_models/v1/PVS_0_model.h5 
+```
+>Note that the brain mask input here with `-b /myhome/mydata/input_brainmask.nii.gz` is optional
+## Building your own script
+The provided python script `predict_one_file.py` can be used as is for running the model or can be used an example to build your own script.
 
 Here is the main part of the script, assuming that the images are in a numpy array with the correct shape (*nb of images*, 160, 214, 176, *number of modality to use for this model*) and that you have enough CPU RAM to load all images in one array (else use a Tensorflow dataset) :
 ````python
