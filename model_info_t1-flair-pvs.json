@@ -1,0 +1,32 @@
+{
+  "version": "v1",
+  "release date": "23/02/2022",
+  "author": "Philippe Boutinaud",
+  "target": "PVS",
+  "modalities": [
+    "t1",
+    "flair"
+  ],
+  "files": [
+    {
+      "name": "T1-FLAIR.PVS/20220223-182702_Unet3Dv2-10.7.2-1.8-T1_FLAIR.VRS_fold_VRS_1x5_fromMH_fold_0_model.h5",
+      "md5": "ac5a449ee5b9db90e8534d4445146fa4"
+    },
+    {
+      "name": "T1-FLAIR.PVS/20220223-182702_Unet3Dv2-10.7.2-1.8-T1_FLAIR.VRS_fold_VRS_1x5_fromMH_fold_1_model.h5",
+      "md5": "a5300b48d60608c1e9c6325af099d8c0"
+    },
+    {
+      "name": "T1-FLAIR.PVS/20220223-182702_Unet3Dv2-10.7.2-1.8-T1_FLAIR.VRS_fold_VRS_1x5_fromMH_fold_2_model.h5",
+      "md5": "54538fb689aed937fe050b1ce292487a"
+    },
+    {
+      "name": "T1-FLAIR.PVS/20220223-182702_Unet3Dv2-10.7.2-1.8-T1_FLAIR.VRS_fold_VRS_1x5_fromMH_fold_3_model.h5",
+      "md5": "469238ef2c86bc6dfca404c088d07a55"
+    },
+    {
+      "name": "T1-FLAIR.PVS/20220223-182702_Unet3Dv2-10.7.2-1.8-T1_FLAIR.VRS_fold_VRS_1x5_fromMH_fold_4_model.h5",
+      "md5": "b23c68d7f81c946788c5310a752f0a89"
+    }
+  ]
+}

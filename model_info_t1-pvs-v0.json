@@ -1,0 +1,31 @@
+{
+  "version": "v0",
+  "release date": "04/03/2021",
+  "author": "Philippe Boutinaud",
+  "target": "PVS",
+  "modalities": [
+    "t1"
+  ],
+  "files": [
+    {
+      "name": "T1.PVS/20210304-114815_Unet.8.7.2.T1.VRS_finalk751_fold_0_model.h5",
+      "md5": "6718054216d387af4df3f98f91ec674c"
+    },
+    {
+      "name": "T1.PVS/20210304-114815_Unet.8.7.2.T1.VRS_finalk751_fold_1_model.h5",
+      "md5": "0e59843b68532145ba4e28f6d2617695"
+    },
+    {
+      "name": "T1.PVS/20210304-114815_Unet.8.7.2.T1.VRS_finalk751_fold_2_model.h5",
+      "md5": "ed5df79d91ab0d06fb267f3e2c18750e"
+    },
+    {
+      "name": "T1.PVS/20210304-114815_Unet.8.7.2.T1.VRS_finalk751_fold_3_model.h5",
+      "md5": "57a2acfa38dbfd6b48b8731b97d8f800"
+    },
+    {
+      "name": "T1.PVS/20210304-114815_Unet.8.7.2.T1.VRS_finalk751_fold_4_model.h5",
+      "md5": "b8d99161a957fcfe2eb021fbb0ec5389"
+    }
+  ]
+}

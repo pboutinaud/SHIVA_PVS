@@ -1,0 +1,35 @@
+{
+  "version": "v1",
+  "release date": "30/10/2021",
+  "author": "Philippe Boutinaud",
+  "target": "PVS",
+  "modalities": [
+    "t1"
+  ],
+  "files": [
+    {
+      "name": "T1.PVS/20211030-162753_Unet3Dv2-10.7.2-1.8-T1.VRS_fold_1x6_pi_fold_0_model.h5",
+      "md5": "374b219ace508b89d2ecdafd29a9183a"
+    },
+    {
+      "name": "T1.PVS/20211030-162753_Unet3Dv2-10.7.2-1.8-T1.VRS_fold_1x6_pi_fold_1_model.h5",
+      "md5": "1ccb95db16d73f738a2c6029b4f53dd2"
+    },
+    {
+      "name": "T1.PVS/20211030-162753_Unet3Dv2-10.7.2-1.8-T1.VRS_fold_1x6_pi_fold_2_model.h5",
+      "md5": "645407143774d17a381273e1fbdf7822"
+    },
+    {
+      "name": "T1.PVS/20211030-162753_Unet3Dv2-10.7.2-1.8-T1.VRS_fold_1x6_pi_fold_3_model.h5",
+      "md5": "c416d84b3f9e7eaaf5ad7a0a190c8ee3"
+    },
+    {
+      "name": "T1.PVS/20211030-162753_Unet3Dv2-10.7.2-1.8-T1.VRS_fold_1x6_pi_fold_4_model.h5",
+      "md5": "6d025263562b7c5c419580253ecfbb57"
+    },
+    {
+      "name": "T1.PVS/20211030-162753_Unet3Dv2-10.7.2-1.8-T1.VRS_fold_1x6_pi_fold_5_model.h5",
+      "md5": "cf79fd4e8184e1828a3da45ff788183b"
+    }
+  ]
+}

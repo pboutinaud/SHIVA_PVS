@@ -1,0 +1,31 @@
+{
+  "version": "v2",
+  "release date": "11/05/2024",
+  "author": "Philippe Boutinaud",
+  "target": "PVS",
+  "modalities": [
+    "t1"
+  ],
+  "files": [
+    {
+      "name": "T1.PVS.v2/ResUnet3D-8.9.2-1.5-T1.VRS_fold_VRS_1x5_fold_1_bestvalloss",
+      "md5": "c921d856c6783835bb8f4119097aeab9"
+    },
+    {
+      "name": "T1.PVS.v2/ResUnet3D-8.9.2-1.5-T1.VRS_fold_VRS_1x5_fold_3_bestvalloss",
+      "md5": "361957f25caf2b5b58d558f607fc0aa1"
+    },
+    {
+      "name": "T1.PVS.v2/ResUnet3D-8.9.2-1.5-T1.VRS_fold_VRS_1x5_fold_0_bestvalloss",
+      "md5": "00055f9c6190744e364c53dce3cc4300"
+    },
+    {
+      "name": "T1.PVS.v2/ResUnet3D-8.9.2-1.5-T1.VRS_fold_VRS_1x5_fold_2_bestvalloss",
+      "md5": "adf24e3ee32c5e1898ce5ba0430f4e4e"
+    },
+    {
+      "name": "T1.PVS.v2/ResUnet3D-8.9.2-1.5-T1.VRS_fold_VRS_1x5_fold_4_bestvalloss",
+      "md5": "914bfa061b2ca67294f164e6f985bfdb"
+    }
+  ]
+}
