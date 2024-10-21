@@ -30,15 +30,19 @@ To access the models :
 * v2/T1.PVS : is a segmentation Unet-like model with residual blocks trained from transfert learning from other models (e.g. T2->CMB). It is able to segment PVS from T2 images if they are preprocessed with inverted voxels inside the brain mask. It was trained with Tensorflow  2.9.1 used with Python 3.9, indiviudal models are stored in the Tensorflow "SavedModel" format to avoid the H5 compatibility problems mentionned below.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/W0YpwQzzB) : https://cloud.efixia.com/sharing/W0YpwQzzB
     * Checksum : 9f8c6e1904f01657cdbabddf3caf4ef2
+    * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v2.json](model_info_t1-pvs-v2.json)
 * v1/T1.PVS: is a segmentation model with incremental architecture enhancements done since the publication and is trained with a nonlinear voxel augmentation strategy that makes it more robust when used with degraded or resampled images.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/wknXOu07H) : https://cloud.efixia.com/sharing/wknXOu07H
     * Checksum : 90376aaa340e8cb0459f29a9f5f2007a
+    * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v1.json](model_info_t1-pvs-v1.json)
 * v1/T1-FLAIR.PVS: is a multimodal segmentation model with the same architecture as the one above, using FLAIR provides a small performance increase.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/Dg49eKSPR) : https://cloud.efixia.com/sharing/Dg49eKSPR
     * Checksum : bef270c685f5d9bffaa28ab78576ba59
+    * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs.json](model_info_t1-flair-pvs.json)
 * v0/T1.PVS: is the segmentation model described in the publication
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/dDqjx2DCq) : https://cloud.efixia.com/sharing/dDqjx2DCq
     * Checksum : 655938f815763c4a454370147f8d13e2
+    * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v0.json](model_info_t1-pvs-v0.json)
 
 ## Requirements
 Unless otherwise mentionned, the models were trained with Tensorflow > 2.7 used with Python 3.7, they are stored in the H5 format (there is a compatibility problem when reading tendorflow H5 files by using Python version > 3.7).
