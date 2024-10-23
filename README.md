@@ -56,7 +56,9 @@ To run the `predict_one_file.py` script, you will need a python environment with
 If you don't know anything about python environment and libraries, you can find some documentation and installers on the [Anaconda website](https://docs.anaconda.com/). We recommend using the lightweight [Miniconda](https://docs.anaconda.com/miniconda/).
 
 ## Usage
-Step-by-step process to run the model:
+**These models can be used with the [SHiVAi](https://github.com/pboutinaud/SHiVAi) preprocessing and deep learning segmentation workflow.**
+
+### Step-by-step process to run the model without SHiVAi
 1. Download the `predict_one_file.py` from the repository (clic the "<> Code" button on the GitHub interface and download the zip file, or clone the repository)
 2. Download and unzip the trained models (see [above](#the-segmentation-models))
 3. Preprocess the input data (swi or T2gre images) to the proper x-y-z volume (160 × 214 × 176). If the resolution is close to 1mm isotropic voxels, a simple cropping is enough. Otherwise, you will have to resample the images to 1mm isotropic voxels. For now, you will have to do it by yourself, but soon we will provide a full Shiva pipeline to run everything.
@@ -71,7 +73,7 @@ Here is an example of usage of the script with the following inputs:
 python /myhome/my_scripts/predict_one_file.py -i /myhome/mydata/swi_image.nii.gz -b /myhome/mydata/input_brainmask.nii.gz -o /myhome/my_results/pvs_segmentation.nii.gz -m /myhome/pvs_models/v1/PVS_fold_1_model.h5 -m /myhome/pvs_models/v1/PVS_fold_2_model.h5 -m /myhome/pvs_models/v1/PVS_0_model.h5 
 ```
 >Note that the brain mask input here with `-b /myhome/mydata/input_brainmask.nii.gz` is optional
-## Building your own script
+### Building your own script
 The provided python script `predict_one_file.py` can be used as is for running the model or can be used an example to build your own script.
 
 Here is the main part of the script, assuming that the images are in a numpy array with the correct shape (*nb of images*, 160, 214, 176, *number of modality to use for this model*) and that you have enough CPU RAM to load all images in one array (else use a Tensorflow dataset) :
