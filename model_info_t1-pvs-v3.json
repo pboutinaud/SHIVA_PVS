@@ -1,0 +1,31 @@
+{
+  "version": "v3",
+  "release date": "16/02/2026",
+  "author": "Philippe Boutinaud",
+  "url": "https://cloud.efixia.com/sharing/J3rvN3CXK",
+  "target": "PVS",
+  "modalities": [
+    "t1"
+  ],
+  "architecture": "ResUnet3D-8.9.2-1.5",
+  "model_format": "SavedModel",
+  "tensorflow_min_version": "2.17",
+  "sha256_zip": "2BCCE1526CAC283CE31B1C9D7EF638F7785239F9A06164B1609EBD3362A789E2",
+  "files": [
+    {
+      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_0_bestvalloss.tf_inference"
+    },
+    {
+      "name": "T1-PVS/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_1_bestvalloss.tf_inference"
+    },
+    {
+      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_2_bestvalloss.tf_inference"
+    },
+    {
+      "name": "T1-PVS/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_3_bestvalloss.tf_inference"
+    },
+    {
+      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_4_bestvalloss.tf_inference"
+    }
+  ]
+}

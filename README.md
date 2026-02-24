@@ -27,32 +27,49 @@ For multi-modal models trained with T1 + FLAIR images, the models were trained w
 The segmentation can be computed as the average of the inference of several models (depending on the number of folds used in the training for a particular model). The resulting segmentation is an image with voxels values in [0, 1] (proxy for the probability of detection of PVS) that must be thresholded to get the actual segmentation. A threshold of 0.5 has been used successfully but that depends on the preferred balance between precision and sensitivity.
 
 To access the models :
-* v2/T1.PVS : is a segmentation Unet-like model with residual blocks trained from transfert learning from other models (e.g. T2->CMB). It is able to segment PVS from T2 images if they are preprocessed with inverted voxels inside the brain mask. It was trained with Tensorflow  2.9.1 used with Python 3.9, indiviudal models are stored in the Tensorflow "SavedModel" format to avoid the H5 compatibility problems mentionned below.
+* **v3/T1-PVS (recommended)**: New production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/J3rvN3CXK)
+    * SHA256 checksum : 2BCCE1526CAC283CE31B1C9D7EF638F7785239F9A06164B1609EBD3362A789E2
+    * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v3.json](model_info_t1-pvs-v3.json)
+
+* **v3/T1+FLAIR-PVS**: New multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/nTDvEtisM)
+    * SHA256 checksum : 26DB59DD127CE1C729E4EC36A97E1EFCE2D1B1E31A321FB1633AAA0E7352CCF9
+    * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs-v3.json](model_info_t1-flair-pvs-v3.json)
+
+* **Legacy T1/T1+FLAIR models (v0/v1/v2, H5 or old SavedModel format)**:
+
+* v2/T1.PVS : is a segmentation Unet-like model with residual blocks trained from transfert learning from other models (e.g. T2->CMB). It is able to segment PVS from T2 images if they are preprocessed with inverted voxels inside the brain mask. It was trained with Tensorflow  2.9.1 used with Python 3.9, individual models are stored in the Tensorflow "SavedModel" format to avoid the H5 compatibility problems mentionned below.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/W0YpwQzzB) : https://cloud.efixia.com/sharing/W0YpwQzzB
-    * Checksum : 9f8c6e1904f01657cdbabddf3caf4ef2
+    * MD5 checksum : 9f8c6e1904f01657cdbabddf3caf4ef2
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v2.json](model_info_t1-pvs-v2.json)
 * v1/T1.PVS: is a segmentation model with incremental architecture enhancements done since the publication and is trained with a nonlinear voxel augmentation strategy that makes it more robust when used with degraded or resampled images.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/wknXOu07H) : https://cloud.efixia.com/sharing/wknXOu07H
-    * Checksum : 90376aaa340e8cb0459f29a9f5f2007a
+    * MD5 checksum : 90376aaa340e8cb0459f29a9f5f2007a
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v1.json](model_info_t1-pvs-v1.json)
 * v1/T1-FLAIR.PVS: is a multimodal segmentation model with the same architecture as the one above, using FLAIR provides a small performance increase.
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/Dg49eKSPR) : https://cloud.efixia.com/sharing/Dg49eKSPR
-    * Checksum : bef270c685f5d9bffaa28ab78576ba59
+    * MD5 checksum : bef270c685f5d9bffaa28ab78576ba59
     * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs.json](model_info_t1-flair-pvs.json)
 * v0/T1.PVS: is the segmentation model described in the publication
     * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/dDqjx2DCq) : https://cloud.efixia.com/sharing/dDqjx2DCq
-    * Checksum : 655938f815763c4a454370147f8d13e2
+    * MD5 checksum : 655938f815763c4a454370147f8d13e2
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v0.json](model_info_t1-pvs-v0.json)
 
 ## Requirements
-Unless otherwise mentionned, the models were trained with Tensorflow > 2.7 used with Python 3.7, they are stored in the H5 format (there is a compatibility problem when reading tendorflow H5 files by using Python version > 3.7).
 
-A NVIDIA GPU with at least 9Go of RAM is needed to compute inferences with the trained models.
+### For new models (v3 T1-PVS, v3 T1+FLAIR-PVS, SavedModel format)
+The models require TensorFlow ≥ 2.17 and were tested with Python 3.12 and TensorFlow 2.20. They are stored in the TensorFlow SavedModel format. A NVIDIA GPU with at least 9 GB of VRAM is recommended for inference (CPU inference is also supported but slower).
 
-To run the `predict_one_file.py` script, you will need a python environment with the following librairies:
-- tensorflow >= 2.7
+### For legacy models (v0/v1/v2, H5 or older SavedModel format)
+The models were trained with TensorFlow ≥ 2.7 and Python 3.7/3.9 (depending on version). For H5 models, loading with newer Python/TensorFlow requires the `tf-keras` compatibility package and `TF_USE_LEGACY_KERAS=1`. On CPU, models using mixed_float16 are automatically rebuilt in float32.
+
+### Python dependencies
+To run the `predict_one_file.py` script, you will need a python environment with the following libraries:
+- tensorflow >= 2.17 (for new models) or tensorflow >= 2.7 (for legacy models)
 - numpy
 - nibabel
+- tf-keras (only needed for legacy .h5 models)
 If you don't know anything about python environment and libraries, you can find some documentation and installers on the [Anaconda website](https://docs.anaconda.com/). We recommend using the lightweight [Miniconda](https://docs.anaconda.com/miniconda/).
 
 ## Usage
@@ -64,38 +81,74 @@ If you don't know anything about python environment and libraries, you can find 
 3. Preprocess the input data (swi or T2gre images) to the proper x-y-z volume (160 × 214 × 176). If the resolution is close to 1mm isotropic voxels, a simple cropping is enough. Otherwise, you will have to resample the images to 1mm isotropic voxels. For now, you will have to do it by yourself, but soon we will provide a full Shiva pipeline to run everything.
 4. Run the `predict_one_file.py` script as described below
 To run `predict_one_file.py` in your python environment you can check the help with the command `python predict_one_file.py -h` (replace "predict_one_file.py" with the full path to the script if it is not in the working directory).
-Here is an example of usage of the script with the following inputs:
+Here is an example of usage of the script with the new SavedModel models:
 - The `predict_one_file.py` script stored in `/myhome/my_scripts/`
 - Preprocessed Nifti images (volume shape must be 160 × 214 × 176 and voxel values between 0 and 1) stored (for the example) in the folder `/myhome/mydata/`
-- The PVS AI models stored (for the example) in `/myhome/pvs_models/v1`
+- The PVS AI models stored (for the example) in `/myhome/pvs_models/v3`
 - The ouput folder (for the example) `/myhome/my_results` needs to exist at launch
+
 ```bash
-python /myhome/my_scripts/predict_one_file.py -i /myhome/mydata/swi_image.nii.gz -b /myhome/mydata/input_brainmask.nii.gz -o /myhome/my_results/pvs_segmentation.nii.gz -m /myhome/pvs_models/v1/PVS_fold_1_model.h5 -m /myhome/pvs_models/v1/PVS_fold_2_model.h5 -m /myhome/pvs_models/v1/PVS_0_model.h5 
+# New T1-only SavedModel models (v3, recommended)
+python /myhome/my_scripts/predict_one_file.py \
+    -i /myhome/mydata/t1_image.nii.gz \
+    -b /myhome/mydata/input_brainmask.nii.gz \
+    -o /myhome/my_results/pvs_segmentation.nii.gz \
+    --batch_size 1 --gpu 0 \
+    -m /myhome/pvs_models/v3/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_0_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_1_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_2_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_3_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_4_bestvalloss.tf_inference
+```
+
+```bash
+# New T1+FLAIR SavedModel models (v3, recommended)
+python /myhome/my_scripts/predict_one_file.py \
+    -i /myhome/mydata/t1_image.nii.gz \
+    -i /myhome/mydata/flair_image.nii.gz \
+    -o /myhome/my_results/pvs_segmentation.nii.gz \
+    --batch_size 1 --gpu 0 \
+    -m /myhome/pvs_models/v3/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_0_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_1_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_2_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_3_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v3/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_4_bestvalloss.tf_inference
 ```
 >Note that the brain mask input here with `-b /myhome/mydata/input_brainmask.nii.gz` is optional
 ### Building your own script
 The provided python script `predict_one_file.py` can be used as is for running the model or can be used an example to build your own script.
 
-Here is the main part of the script, assuming that the images are in a numpy array with the correct shape (*nb of images*, 160, 214, 176, *number of modality to use for this model*) and that you have enough CPU RAM to load all images in one array (else use a Tensorflow dataset) :
+Here is the main part of the script for new SavedModel models, assuming that the images are in a numpy array with the correct shape (*nb of images*, 160, 214, 176, *number of modality to use for this model*):
 ````python
+import tensorflow as tf
+import numpy as np
+
 # Load models & predict
 predictions = []
-for predictor_file in predictor_files:  # predictor_files is the list of the model's paths
-    tf.keras.backend.clear_session()
-    try:
-        model = tf.keras.models.load_model(
-            predictor_file,
-            compile=False,
-            custom_objects={"tf": tf})
-    except Exception as err:
-        print(f'\n\tWARNING : Exception loading model : {predictor_file}\n{err}')
-        continue
-    # compute the segmentation for this model
-    prediction = model.predict(images)
-    # append segmentation for this
+for model_dir in model_dirs:  # model_dirs is the list of SavedModel directory paths
+    model = tf.saved_model.load(model_dir)
+    batch = tf.constant(images, dtype=tf.float32)
+    prediction = model.serve(batch).numpy()
     predictions.append(prediction)
 
 # Average all predictions
+predictions = np.mean(predictions, axis=0)
+````
+
+For legacy .h5 models (requires `tf-keras` and `TF_USE_LEGACY_KERAS=1`):
+````python
+import os
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
+import tensorflow as tf
+import numpy as np
+
+predictions = []
+for predictor_file in predictor_files:
+    tf.keras.backend.clear_session()
+    model = tf.keras.models.load_model(predictor_file, compile=False, custom_objects={"tf": tf})
+    prediction = model.predict(images)
+    predictions.append(prediction)
+
 predictions = np.mean(predictions, axis=0)
 ````
 
