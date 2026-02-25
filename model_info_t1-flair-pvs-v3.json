@@ -14,19 +14,24 @@
   "sha256_zip": "11A1639ABE2EA1D342AFAABCEFBA65D7E507A6E46E1E53911F94DBB8842CCE1A",
   "files": [
     {
-      "name": "T1.FLAIR-PVS/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_0_bestvalloss.tf_inference"
+      "name": "T1.FLAIR-PVS/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_0_bestvalloss.tf_inference",
+      "md5": "68bf0301110cec894931197665ec328f"
     },
     {
-      "name": "T1.FLAIR-PVS/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_1_bestvalloss.tf_inference"
+      "name": "T1.FLAIR-PVS/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_1_bestvalloss.tf_inference",
+      "md5": "0eb6a9a9a6ba1ac69f32f1993e701040"
     },
     {
-      "name": "T1.FLAIR-PVS/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_2_bestvalloss.tf_inference"
+      "name": "T1.FLAIR-PVS/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_2_bestvalloss.tf_inference",
+      "md5": "d23842e9d48ec46ceb381f93b0233fe8"
     },
     {
-      "name": "T1.FLAIR-PVS/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_3_bestvalloss.tf_inference"
+      "name": "T1.FLAIR-PVS/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_3_bestvalloss.tf_inference",
+      "md5": "1430c4fffdaafff0aafa8038597ebbeb"
     },
     {
-      "name": "T1.FLAIR-PVS/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_4_bestvalloss.tf_inference"
+      "name": "T1.FLAIR-PVS/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_4_bestvalloss.tf_inference",
+      "md5": "b1df676c960e72679212e90ca3a2de5d"
     }
   ]
 }
