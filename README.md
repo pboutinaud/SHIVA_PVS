@@ -28,13 +28,13 @@ The segmentation can be computed as the average of the inference of several mode
 
 To access the models :
 * **v3/T1-PVS (recommended)**: New production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
-    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/J3rvN3CXK)
-    * SHA256 checksum : 2BCCE1526CAC283CE31B1C9D7EF638F7785239F9A06164B1609EBD3362A789E2
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/Nkqo6IfSU)
+    * SHA256 checksum : E02E3E15C6F7C6C1A3FB302CABFAA97802C1C7F6AAE21F2A63801E5EF5DE8D3B
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v3.json](model_info_t1-pvs-v3.json)
 
 * **v3/T1+FLAIR-PVS**: New multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
-    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/nTDvEtisM)
-    * SHA256 checksum : 26DB59DD127CE1C729E4EC36A97E1EFCE2D1B1E31A321FB1633AAA0E7352CCF9
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/C6LWFoID4)
+    * SHA256 checksum : 11A1639ABE2EA1D342AFAABCEFBA65D7E507A6E46E1E53911F94DBB8842CCE1A
     * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs-v3.json](model_info_t1-flair-pvs-v3.json)
 
 * **Legacy T1/T1+FLAIR models (v0/v1/v2, H5 or old SavedModel format)**:

@@ -1,8 +1,8 @@
 {
   "version": "v3",
-  "release date": "16/02/2026",
+  "release date": "25/02/2026",
   "author": "Philippe Boutinaud",
-  "url": "https://cloud.efixia.com/sharing/J3rvN3CXK",
+  "url": "https://cloud.efixia.com/sharing/Nkqo6IfSU",
   "target": "PVS",
   "modalities": [
     "t1"
@@ -10,7 +10,7 @@
   "architecture": "ResUnet3D-8.9.2-1.5",
   "model_format": "SavedModel",
   "tensorflow_min_version": "2.17",
-  "sha256_zip": "2BCCE1526CAC283CE31B1C9D7EF638F7785239F9A06164B1609EBD3362A789E2",
+  "sha256_zip": "E02E3E15C6F7C6C1A3FB302CABFAA97802C1C7F6AAE21F2A63801E5EF5DE8D3B",
   "files": [
     {
       "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_0_bestvalloss.tf_inference"
