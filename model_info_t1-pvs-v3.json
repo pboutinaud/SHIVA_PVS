@@ -13,19 +13,24 @@
   "sha256_zip": "E02E3E15C6F7C6C1A3FB302CABFAA97802C1C7F6AAE21F2A63801E5EF5DE8D3B",
   "files": [
     {
-      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_0_bestvalloss.tf_inference"
+      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_0_bestvalloss.tf_inference",
+      "md5": "4ef33c23a0552042764762db8bbe34f6"
     },
     {
-      "name": "T1-PVS/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_1_bestvalloss.tf_inference"
+      "name": "T1-PVS/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_1_bestvalloss.tf_inference",
+      "md5": "50d295821dfcc443ce8748f956cba11d"
     },
     {
-      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_2_bestvalloss.tf_inference"
+      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_2_bestvalloss.tf_inference",
+      "md5": "579e63c6942fa1708455e06a21fcfa27"
     },
     {
-      "name": "T1-PVS/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_3_bestvalloss.tf_inference"
+      "name": "T1-PVS/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_3_bestvalloss.tf_inference",
+      "md5": "9de94a72b5b037b955f9572ef01b6d5f"
     },
     {
-      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_4_bestvalloss.tf_inference"
+      "name": "T1-PVS/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_4_bestvalloss.tf_inference",
+      "md5": "7fcc6d9b47b34a14afb5ee703c24a0e5"
     }
   ]
 }
