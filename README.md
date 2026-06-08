@@ -31,11 +31,13 @@ To access the models :
     * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/Nkqo6IfSU)
     * SHA256 checksum : E02E3E15C6F7C6C1A3FB302CABFAA97802C1C7F6AAE21F2A63801E5EF5DE8D3B
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v3.json](model_info_t1-pvs-v3.json)
+    * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1-PVS models that made them less performant when used with brainmasked images. It is recommended to use the models **without applying a brain mask on the input images**. A v4 retraining with the same architecture and and with brainmask augmentation is currently in progress and will be made available as soon as possible.
 
 * **v3/T1+FLAIR-PVS**: New multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
     * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/C6LWFoID4)
     * SHA256 checksum : 11A1639ABE2EA1D342AFAABCEFBA65D7E507A6E46E1E53911F94DBB8842CCE1A
     * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs-v3.json](model_info_t1-flair-pvs-v3.json)
+    * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1+FLAIR-PVS models that made them less performant when used with brainmasked images. It is recommended to use the models **without applying a brain mask on the input images**. A v4 retraining with the same architecture and and with brainmask augmentation is currently in progress and will be made available as soon as possible.
 
 * **Legacy T1/T1+FLAIR models (v0/v1/v2, H5 or old SavedModel format)**:
 
