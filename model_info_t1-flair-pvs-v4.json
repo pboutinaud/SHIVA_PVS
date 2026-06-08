@@ -1,0 +1,37 @@
+{
+  "version": "v4",
+  "release date": "08/06/2026",
+  "author": "Philippe Boutinaud",
+  "url": "https://cloud.efixia.com/sharing/6niMzhx8j",
+  "target": "PVS",
+  "modalities": [
+    "t1",
+    "flair"
+  ],
+  "architecture": "ResUnet3D-8.9.2-1.5",
+  "model_format": "SavedModel",
+  "tensorflow_min_version": "2.17",
+  "sha256_zip": "5E613A3FA52FBD725F06ADDE9622754749B0FB6F428E267E3DF04D87A7277756",
+  "files": [
+    {
+      "name": "T1.FLAIR-PVS/20260604-190731_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_0_bestvalloss.tf_inference",
+      "md5": "06bff01478b7e132191b18400b500226"
+    },
+    {
+      "name": "T1.FLAIR-PVS/20260602-075639_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_1_bestvalloss.tf_inference",
+      "md5": "7aed01b76c1dd727ba1208d2a6c8d0b1"
+    },
+    {
+      "name": "T1.FLAIR-PVS/20260602-075650_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_2_bestvalloss.tf_inference",
+      "md5": "4df01aa1f94c07c9bc30cab577d176f2"
+    },
+    {
+      "name": "T1.FLAIR-PVS/20260602-132513_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_3_bestvalloss.tf_inference",
+      "md5": "ff98bb3933e833bbf1f7f2235a1e293f"
+    },
+    {
+      "name": "T1.FLAIR-PVS/20260602-172039_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_4_bestvalloss.tf_inference",
+      "md5": "732b998018734b50ddad32bce6a3e092"
+    }
+  ]
+}

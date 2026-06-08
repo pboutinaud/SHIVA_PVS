@@ -1,0 +1,36 @@
+{
+  "version": "v4",
+  "release date": "08/06/2026",
+  "author": "Philippe Boutinaud",
+  "url": "https://cloud.efixia.com/sharing/CPr2odwuP",
+  "target": "PVS",
+  "modalities": [
+    "t1"
+  ],
+  "architecture": "ResUnet3D-8.9.2-1.5",
+  "model_format": "SavedModel",
+  "tensorflow_min_version": "2.17",
+  "sha256_zip": "F6BFD21B996D7B77C77AE2EF2E8F8AB748E1D762C08C03191FA369B98AFFCB44",
+  "files": [
+    {
+      "name": "T1-PVS/20260601-015247_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_0_bestvalloss.tf_inference",
+      "md5": "a6ebf84eae5ccb114831bad03da0a466"
+    },
+    {
+      "name": "T1-PVS/20260601-014820_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_1_bestvalloss.tf_inference",
+      "md5": "ff6f84bef7649c07923f4308cadd0c01"
+    },
+    {
+      "name": "T1-PVS/20260601-110705_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_2_bestvalloss.tf_inference",
+      "md5": "64e14ed853edc7128c0d835d59815ff5"
+    },
+    {
+      "name": "T1-PVS/20260601-110708_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_3_bestvalloss.tf_inference",
+      "md5": "f7d89881abf4d1637bb9deffc04b3cce"
+    },
+    {
+      "name": "T1-PVS/20260601-110719_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_4_bestvalloss.tf_inference",
+      "md5": "578021b323fb00b757b97f4444e03b9b"
+    }
+  ]
+}

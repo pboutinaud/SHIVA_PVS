@@ -27,17 +27,29 @@ For multi-modal models trained with T1 + FLAIR images, the models were trained w
 The segmentation can be computed as the average of the inference of several models (depending on the number of folds used in the training for a particular model). The resulting segmentation is an image with voxels values in [0, 1] (proxy for the probability of detection of PVS) that must be thresholded to get the actual segmentation. A threshold of 0.5 has been used successfully but that depends on the preferred balance between precision and sensitivity.
 
 To access the models :
-* **v3/T1-PVS (recommended)**: New production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
+* **v4/T1-PVS (recommended)**: New production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/CPr2odwuP)
+    * SHA256 checksum : F6BFD21B996D7B77C77AE2EF2E8F8AB748E1D762C08C03191FA369B98AFFCB44
+    * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v4.json](model_info_t1-pvs-v4.json)
+    * **IMPORTANT NOTE**: This model solves the brainmask problem of the v3 models and can be used with or without applying a brain mask on the input images.
+
+* **v4/T1+FLAIR-PVS**: New multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/6niMzhx8j)
+    * SHA256 checksum : 5E613A3FA52FBD725F06ADDE9622754749B0FB6F428E267E3DF04D87A7277756
+    * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs-v4.json](model_info_t1-flair-pvs-v4.json)
+    * **IMPORTANT NOTE**: This model solves the brainmask problem of the v3 models and can be used with or without applying a brain mask on the input images.
+
+* **v3/T1-PVS (obsolete)**: Production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
     * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/Nkqo6IfSU)
     * SHA256 checksum : E02E3E15C6F7C6C1A3FB302CABFAA97802C1C7F6AAE21F2A63801E5EF5DE8D3B
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v3.json](model_info_t1-pvs-v3.json)
-    * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1-PVS models that made them less performant when used with brainmasked images. It is recommended to use the models **without applying a brain mask on the input images**. A v4 retraining with the same architecture and and with brainmask augmentation is currently in progress and will be made available as soon as possible.
+    * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1-PVS models that made them less performant when used with brainmasked images. These models are now superseded by the **v4 T1-PVS models (see above)**, which solve this problem and can be used with or without a brain mask.
 
-* **v3/T1+FLAIR-PVS**: New multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
+* **v3/T1+FLAIR-PVS (obsolete)**: Multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
     * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/C6LWFoID4)
     * SHA256 checksum : 11A1639ABE2EA1D342AFAABCEFBA65D7E507A6E46E1E53911F94DBB8842CCE1A
     * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs-v3.json](model_info_t1-flair-pvs-v3.json)
-    * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1+FLAIR-PVS models that made them less performant when used with brainmasked images. It is recommended to use the models **without applying a brain mask on the input images**. A v4 retraining with the same architecture and and with brainmask augmentation is currently in progress and will be made available as soon as possible.
+    * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1+FLAIR-PVS models that made them less performant when used with brainmasked images. These models are now superseded by the **v4 T1+FLAIR-PVS models (see above)**, which solve this problem and can be used with or without a brain mask.
 
 * **Legacy T1/T1+FLAIR models (v0/v1/v2, H5 or old SavedModel format)**:
 
@@ -60,7 +72,7 @@ To access the models :
 
 ## Requirements
 
-### For new models (v3 T1-PVS, v3 T1+FLAIR-PVS, SavedModel format)
+### For new models (v3/v4 T1-PVS, v3/v4 T1+FLAIR-PVS, SavedModel format)
 The models require TensorFlow ≥ 2.17 and were tested with Python 3.12 and TensorFlow 2.20. They are stored in the TensorFlow SavedModel format. A NVIDIA GPU with at least 9 GB of VRAM is recommended for inference (CPU inference is also supported but slower).
 
 ### For legacy models (v0/v1/v2, H5 or older SavedModel format)
@@ -86,35 +98,35 @@ To run `predict_one_file.py` in your python environment you can check the help w
 Here is an example of usage of the script with the new SavedModel models:
 - The `predict_one_file.py` script stored in `/myhome/my_scripts/`
 - Preprocessed Nifti images (volume shape must be 160 × 214 × 176 and voxel values between 0 and 1) stored (for the example) in the folder `/myhome/mydata/`
-- The PVS AI models stored (for the example) in `/myhome/pvs_models/v3`
+- The PVS AI models stored (for the example) in `/myhome/pvs_models/v4`
 - The ouput folder (for the example) `/myhome/my_results` needs to exist at launch
 
 ```bash
-# New T1-only SavedModel models (v3, recommended)
+# New T1-only SavedModel models (v4, recommended)
 python /myhome/my_scripts/predict_one_file.py \
     -i /myhome/mydata/t1_image.nii.gz \
     -b /myhome/mydata/input_brainmask.nii.gz \
     -o /myhome/my_results/pvs_segmentation.nii.gz \
     --batch_size 1 --gpu 0 \
-    -m /myhome/pvs_models/v3/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_0_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_1_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_2_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20241214-162517_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_3_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20241214-162357_ResUnet3D-8.9.2-1.5-T1.VRS_prodT1only_fold_4_bestvalloss.tf_inference
+    -m /myhome/pvs_models/v4/20260601-015247_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_0_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260601-014820_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_1_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260601-110705_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_2_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260601-110708_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_3_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260601-110719_ResUnet3D-8.9.2-1.5-T1.VRS_production_brainmaskaug_restageB_fold_4_bestvalloss.tf_inference
 ```
 
 ```bash
-# New T1+FLAIR SavedModel models (v3, recommended)
+# New T1+FLAIR SavedModel models (v4)
 python /myhome/my_scripts/predict_one_file.py \
     -i /myhome/mydata/t1_image.nii.gz \
     -i /myhome/mydata/flair_image.nii.gz \
     -o /myhome/my_results/pvs_segmentation.nii.gz \
     --batch_size 1 --gpu 0 \
-    -m /myhome/pvs_models/v3/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_0_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_1_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_2_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20250109-182235_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_3_bestvalloss.tf_inference \
-    -m /myhome/pvs_models/v3/20250109-180804_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_prodT1only_fold_4_bestvalloss.tf_inference
+    -m /myhome/pvs_models/v4/20260604-190731_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_0_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260602-075639_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_1_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260602-075650_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_2_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260602-132513_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_3_bestvalloss.tf_inference \
+    -m /myhome/pvs_models/v4/20260602-172039_ResUnet3D-8.9.2-1.5-T1_FLAIR.VRS_production_brainmaskaug_restageB_fold_4_bestvalloss.tf_inference
 ```
 >Note that the brain mask input here with `-b /myhome/mydata/input_brainmask.nii.gz` is optional
 ### Building your own script
