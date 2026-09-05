@@ -26,6 +26,10 @@ For multi-modal models trained with T1 + FLAIR images, the models were trained w
 
 The segmentation can be computed as the average of the inference of several models (depending on the number of folds used in the training for a particular model). The resulting segmentation is an image with voxels values in [0, 1] (proxy for the probability of detection of PVS) that must be thresholded to get the actual segmentation. A threshold of 0.5 has been used successfully but that depends on the preferred balance between precision and sensitivity.
 
+| ⚠️ **IMPORTANT** |
+| :--- |
+| Because of a bias introduced during training, the PVS models do not perform well on skull-stripped images. **Please use non-skull-stripped images as input for these models.** |
+
 To access the models :
 * **v4/T1-PVS (recommended)**: New production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
     * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/CPr2odwuP)
