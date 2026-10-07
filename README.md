@@ -32,25 +32,25 @@ The segmentation can be computed as the average of the inference of several mode
 
 To access the models :
 * **v4/T1-PVS (recommended)**: New production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
-    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/CPr2odwuP)
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/Zvbj1CpkM)
     * SHA256 checksum : F6BFD21B996D7B77C77AE2EF2E8F8AB748E1D762C08C03191FA369B98AFFCB44
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v4.json](model_info_t1-pvs-v4.json)
     * **IMPORTANT NOTE**: This model solves the brainmask problem of the v3 models and can be used with or without applying a brain mask on the input images.
 
 * **v4/T1+FLAIR-PVS**: New multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
-    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/6niMzhx8j)
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/7r5t1hLTt)
     * SHA256 checksum : 5E613A3FA52FBD725F06ADDE9622754749B0FB6F428E267E3DF04D87A7277756
     * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs-v4.json](model_info_t1-flair-pvs-v4.json)
     * **IMPORTANT NOTE**: This model solves the brainmask problem of the v3 models and can be used with or without applying a brain mask on the input images.
 
 * **v3/T1-PVS (obsolete)**: Production models based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Mono-modal (T1 only). Models are stored in TensorFlow SavedModel format (5 folds).
-    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/Nkqo6IfSU)
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/RfDejrC0f)
     * SHA256 checksum : E02E3E15C6F7C6C1A3FB302CABFAA97802C1C7F6AAE21F2A63801E5EF5DE8D3B
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v3.json](model_info_t1-pvs-v3.json)
     * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1-PVS models that made them less performant when used with brainmasked images. These models are now superseded by the **v4 T1-PVS models (see above)**, which solve this problem and can be used with or without a brain mask.
 
 * **v3/T1+FLAIR-PVS (obsolete)**: Multi-modal production models (T1 + FLAIR) based on the ResUnet3D architecture, trained with Keras 3 / TensorFlow ≥ 2.17. Models are stored in TensorFlow SavedModel format (5 folds).
-    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/C6LWFoID4)
+    * Download: [cloud.efixia.com](https://cloud.efixia.com/sharing/ZeOTUdZ79)
     * SHA256 checksum : 11A1639ABE2EA1D342AFAABCEFBA65D7E507A6E46E1E53911F94DBB8842CCE1A
     * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs-v3.json](model_info_t1-flair-pvs-v3.json)
     * **IMPORTANT NOTE**: There was a problem with the training of the v3 T1+FLAIR-PVS models that made them less performant when used with brainmasked images. These models are now superseded by the **v4 T1+FLAIR-PVS models (see above)**, which solve this problem and can be used with or without a brain mask.
@@ -58,19 +58,19 @@ To access the models :
 * **Legacy T1/T1+FLAIR models (v0/v1/v2, H5 or old SavedModel format)**:
 
 * v2/T1.PVS : is a segmentation Unet-like model with residual blocks trained from transfert learning from other models (e.g. T2->CMB). It is able to segment PVS from T2 images if they are preprocessed with inverted voxels inside the brain mask. It was trained with Tensorflow  2.9.1 used with Python 3.9, individual models are stored in the Tensorflow "SavedModel" format to avoid the H5 compatibility problems mentionned below.
-    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/W0YpwQzzB) : https://cloud.efixia.com/sharing/W0YpwQzzB
+    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/QxxsJ9jw4) : https://cloud.efixia.com/sharing/QxxsJ9jw4
     * MD5 checksum : 9f8c6e1904f01657cdbabddf3caf4ef2
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v2.json](model_info_t1-pvs-v2.json)
 * v1/T1.PVS: is a segmentation model with incremental architecture enhancements done since the publication and is trained with a nonlinear voxel augmentation strategy that makes it more robust when used with degraded or resampled images.
-    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/wknXOu07H) : https://cloud.efixia.com/sharing/wknXOu07H
+    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/IJeJJ00RY) : https://cloud.efixia.com/sharing/IJeJJ00RY
     * MD5 checksum : 90376aaa340e8cb0459f29a9f5f2007a
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v1.json](model_info_t1-pvs-v1.json)
 * v1/T1-FLAIR.PVS: is a multimodal segmentation model with the same architecture as the one above, using FLAIR provides a small performance increase.
-    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/Dg49eKSPR) : https://cloud.efixia.com/sharing/Dg49eKSPR
+    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/wKfUrUoDy) : https://cloud.efixia.com/sharing/wKfUrUoDy
     * MD5 checksum : bef270c685f5d9bffaa28ab78576ba59
     * JSON file for SHiVAi pipeline: [model_info_t1-flair-pvs.json](model_info_t1-flair-pvs.json)
 * v0/T1.PVS: is the segmentation model described in the publication
-    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/dDqjx2DCq) : https://cloud.efixia.com/sharing/dDqjx2DCq
+    * due to file size limitation the models can be found [here](https://cloud.efixia.com/sharing/l8v7TZDD9) : https://cloud.efixia.com/sharing/l8v7TZDD9
     * MD5 checksum : 655938f815763c4a454370147f8d13e2
     * JSON file for SHiVAi pipeline: [model_info_t1-pvs-v0.json](model_info_t1-pvs-v0.json)
 
