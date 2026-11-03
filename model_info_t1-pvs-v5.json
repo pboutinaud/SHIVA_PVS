@@ -1,0 +1,36 @@
+{
+  "version": "v5",
+  "release date": "03/11/2026",
+  "author": "Philippe Boutinaud",
+  "url": "https://cloud.efixia.com/sharing/TDbSoPRmm",
+  "target": "PVS",
+  "modalities": [
+    "t1"
+  ],
+  "architecture": "ResUnet3D-8.7.2-1.5",
+  "model_format": "SavedModel",
+  "tensorflow_min_version": "2.17",
+  "sha256_zip": "BA5E5990F8A224B6210DCAF878CE690A424007E1C5748454B040304B8B882CC8",
+  "files": [
+    {
+      "name": "T1-PVS/20261013-213328_ResUnet3D-8.7.2-1.5-T1.VRS_production_107_t1_pvs_prod_anneal_fold_0_final.tf_inference",
+      "md5": "51f6e877cb5addb4b975218388be95b1"
+    },
+    {
+      "name": "T1-PVS/20261014-085158_ResUnet3D-8.7.2-1.5-T1.VRS_production_107_t1_pvs_prod_anneal_fold_1_final.tf_inference",
+      "md5": "b60b92bc102d6293d6520d207ce48325"
+    },
+    {
+      "name": "T1-PVS/20261014-090458_ResUnet3D-8.7.2-1.5-T1.VRS_production_107_t1_pvs_prod_anneal_fold_2_final.tf_inference",
+      "md5": "e4f3f5b70de4f1df55d6a0f6a15353cc"
+    },
+    {
+      "name": "T1-PVS/20261013-215420_ResUnet3D-8.7.2-1.5-T1.VRS_production_107_t1_pvs_prod_anneal_fold_3_final.tf_inference",
+      "md5": "24eb143198e0e626e06c5c96fbff7736"
+    },
+    {
+      "name": "T1-PVS/20261014-092325_ResUnet3D-8.7.2-1.5-T1.VRS_production_107_t1_pvs_prod_anneal_fold_4_final.tf_inference",
+      "md5": "d3897474b80054e993bab6777f315ef9"
+    }
+  ]
+}
